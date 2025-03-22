@@ -1,5 +1,5 @@
 # EX01 Developing a Simple Webserver
-## Date: 20.03.2025
+## Date:20/03/2025
 
 ## AIM:
 To develop a simple webserver to serve html pages and display the list of protocols in TCP/IP Protocol Suite.
@@ -36,63 +36,106 @@ Start the server script and check for errors.
 Open a browser and navigate to http://127.0.0.1:8000 (or the assigned port).
 
 ## PROGRAM:
-        '''
-        from http.server import HTTPServer, BaseHTTPRequestHandler
-        content ="""
-        <html>
-        <title>Top Software Industries</title>
-        <body>
-        <table border="2" cellspacing="10"cellpadding="6">
-        <tr>
-        <th>s.no</th>
-        <th>companies</th>
-        <th>revenue</th>
-        </tr>
-        <tr>
-        <th>1</th>
-        <th>Microsoft</th>
-        <th>65 billion</th>
-        </tr>
-        <tr>
-        <th>2</th>
-        <th>oracle</th>
-        <th>29.6 billion</th>
-        </tr>
-        <tr>
-        <th>3</th>
-        <th>IBM</th>
-        <th>29.1 billion</th>
-        </tr>
-        <tr>
-        <th>4</th>
-        <th>SAP</th>
-        <th>6.4 billion</th>
-        </tr>
-        <tr>
-        <th>5</th>
-        <th>symentec</th>
-        <th>5.6 billion</th>
-        </body>
-        </hyml>
-        """
+```
+from http.server import HTTPServer, BaseHTTPRequestHandler
+content = """
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCP/IP PROTOCOLS</title>
+    <style>
         
-        class myhandler(BaseHTTPRequestHandler):
-            def do_GET(self):
-                print("request received")
-                self.send_response(200)
-                self.send_header('content-type', 'text/html; charset=utf-8')
-                self.end_headers()
-                self.wfile.write(content.encode())
-        server_address =('',8000)
-        httpd = HTTPServer(server_address,myhandler)
-        print("my webserver is running...")
-        httpd.serve_forever()
-        '''
         
+        
+        *{
+            background: linear-gradient(rgba(214, 223, 159, 0.605),rgba(162, 209, 162, 0.7)),url(busustand.jpg);
+            background-size: cover  ;
+            background-position: center;
+            
+        }
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 80px 0;
+            align-items: center;
+           
+        }
+        th, td {
+            border: 1px solid #1c211f;
+            padding: 8px;
+            text-align: center;
+            font-size: 30px;
+        }
+        th {
+            background-color: #5e645e;
+        }
+        .head{
+            text-align: center;
+            font-size: 50px;
+            
+        }
+
+           
+            
+        
+        
+    </style>
+</head> 
+<body>
+    <div class="head">
+        <b>TCP/IP PROTOCOLS SUITE.</b>
+    </div>
+    <center>
+    <table style="border: 5px;">
+        <tr>
+            <th>LAYER NAMES</th>
+            <td>PROTOCOLS</td>
+        </tr>
+        <tr>
+            <th>APPLICATION LAYER</th>
+            <td>HTTP,FTP,POP3,SMTP,SNMP</td>
+        </tr>
+        <tr>
+            <th>TRANSPORT LAYER</th>
+            <td>TCP,UDP</td>
+        </tr>
+        <tr>
+            <th>NETWORKING LAYER</th>
+            <td>IP,ICMP</td>
+        </tr>
+        <tr>
+            <th>DATALINK LAYER</th>
+            <td>ETHERNET, ARP</td>
+        </tr>                        
+    </table>
+</center>
+
+</body>
+</html>
+
+"""
+class myhandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print("request received")
+        self.send_response(200)
+        self.send_header('content-type', 'text/html; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(content.encode())
+server_address = ('',8000)
+httpd = HTTPServer(server_address,myhandler)
+print("my webserver is running...")
+httpd.serve_forever()
+```
+
 
 ## OUTPUT:
-![alt text](<Screenshot 2025-03-19 141226.png>)
+![image](https://github.com/user-attachments/assets/0e509644-c847-42e1-ad14-0903c6fe85a0)
 
-![alt text](<Screenshot 2025-03-19 141538.png>)
+![image](https://github.com/user-attachments/assets/2ea54104-4689-4499-8cb6-cc23ec1a7e77)
+
+
 ## RESULT:
 The program for implementing simple webserver is executed successfully.
